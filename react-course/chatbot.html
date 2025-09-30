@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="react-basics.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <!-- код для реакта для вейбсайтов и приложений-->
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <!-- код для реакта только для вебсайтов. для моб приложений есть еще reactNative-->
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <!--  Babel - js complier. to translate JSX  to JS for web browser-->
+    <script type="text/babel">
+      function ChatInput({ chatMessages, setChatMessages }) {
+        //component name must start with the Uppercase
+
+        const [inputText, setInputText] = React.useState("");
+
+        function saveInputText(event) {
+          setInputText(event.target.value); //get the text
+        }
+        function sendMessage() {
+          const newChatMessages = [
+            ...chatMessages,
+            {
+              message: inputText,
+              sender: "user",
+              id: crypto.randomUUID(), //code thats generate a unique id
+            },
+          ]; //копируем старый массив и добавляем к нему новый объект
+          setChatMessages(newChatMessages);
+
+          const response = Chatbot.getResponse(inputText); //получение ответа от бота через библиотеку готовую
+          setChatMessages([
+            ...newChatMessages,
+            {
+              message: response,
+              sender: "robot",
+              id: crypto.randomUUID(),
+            },
+          ]);
+          console.log(response);
+          setInputText(""); //чтоб убрать все из placeholder
+        }
+        return (
+          <>
+            <input
+              placeholder="Send a message to Chatbot"
+              size="30"
+              onChange={saveInputText}
+              value={inputText} //чтоб в placeholder html было пусто
+            />
+            <button onClick={sendMessage}>Send</button>
+          </>
+        );
+      }
+
+      function ChatMessage({ message, sender }) {
+        /*  const message = props.message;
+        const sender = props.sender; */
+        // const {message, sender}=props;
+
+        /*  if (sender === "robot") {
+          return (
+            <div>
+              <img src="robot.png" width="50" />
+              {message}
+            </div>
+          );
+        } */
+
+        return (
+          <div>
+            {sender === "robot" && <img src="robot.png" width="50" />}
+            {message}
+            {sender === "user" && <img src="user.png" width="50" />}
+          </div>
+        );
+      }
+
+      function ChatMessages({ chatMessages }) {
+        return (
+          <>
+            {chatMessages.map((chatMessage) => {
+              return (
+                <ChatMessage
+                  message={chatMessage.message}
+                  sender={chatMessage.sender}
+                  key={chatMessage.id}
+                />
+              );
+            })}
+            ;
+          </>
+        );
+      }
+      function App() {
+        const [chatMessages, setChatMessage] = React.useState([
+          {
+            message: "hello chatbot",
+            sender: "user",
+            id: "id1",
+          },
+          {
+            message: "different",
+            sender: "robot",
+            id: "id2",
+          },
+          {
+            message: "Can you get me todays date",
+            sender: "user",
+            id: "id3",
+          },
+          {
+            message: "tuesday 27 september",
+            sender: "robot",
+            id: "id4",
+          },
+        ]);
+        // same as first const [chatMessages, setChatMessage]=array;
+        // csame as secon const chatMessages = array[0]; //the current data
+        // const setChatMessages = array[1]; //Function that updates data
+        return (
+          <>
+            <ChatInput
+              chatMessages={chatMessages}
+              setChatMessages={setChatMessage}
+            />
+            <ChatMessages chatMessages={chatMessages} />
+          </>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
