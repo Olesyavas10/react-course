@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 3</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="react-basics.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <!-- код для реакта для вейбсайтов и приложений-->
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <!-- код для реакта только для вебсайтов. для моб приложений есть еще reactNative-->
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <!--  Babel - js complier. to translate JSX  to JS for web browser-->
+    <script type="text/babel">
+      /* function countTimes(count, setCount) {
+        setCount(count + 1);
+      }
+
+      function resetCount(count, setCount) {
+        count = 0;
+        setCount(count);
+      }
+      function App() {
+        const [count, setCount] = React.useState(0);
+
+        return (
+          <>
+            <button
+              onClick={() => {
+                countTimes(count, setCount);
+              }}
+            >
+              Clicked {count} {count === 1 ? "time" : "times"}
+            </button>
+            <button
+              onClick={() => {
+                countTimes(count, setCount);
+              }}
+            >
+              Clicked {count} {count === 1 ? "time" : "times"}
+            </button>
+            <button
+              onClick={() => {
+                resetCount(count, setCount);
+              }}
+            >
+              Reset
+            </button>
+          </>
+        );
+      }
+ */
+
+      function resetText(value, setValue) {
+        value = "";
+        setValue(value);
+      }
+      function exampleText(value, setValue) {
+        value = "Alice";
+        setValue(value);
+      }
+      function App() {
+        const [value, setValue] = React.useState("");
+
+        return (
+          <>
+            <input
+              placeholder="Type a name here"
+              value={value}
+              onChange={(event) => {
+                setValue(event.target.value);
+              }}
+            />
+            <button onClick={() => resetText(value, setValue)}>Reset</button>
+            <button onClick={() => exampleText(value, setValue)}>
+              Example
+            </button>
+            <p>Hello {value} </p>
+          </>
+        );
+      }
+      const container = document.querySelector(".js-container");
+
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

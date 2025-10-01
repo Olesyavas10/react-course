@@ -21,11 +21,18 @@
         //component name must start with the Uppercase
 
         const [inputText, setInputText] = React.useState("");
+        const [isLoading, setIsLoading] = React.useState(false);
 
         function saveInputText(event) {
           setInputText(event.target.value); //get the text
         }
-        function sendMessage() {
+        async function sendMessage() {
+          if (isLoading || inputText === "") {
+            return;
+          }
+          setIsLoading(true); //переключаем
+          setInputText("");
+
           const newChatMessages = [
             ...chatMessages,
             {
@@ -35,8 +42,18 @@
             },
           ]; //копируем старый массив и добавляем к нему новый объект
           setChatMessages(newChatMessages);
+          setInputText(""); //чтоб убрать все из placeholder
+          setChatMessages([
+            ...newChatMessages,
+            {
+              message: "Loading...",
+              sender: "robot",
+              id: crypto.randomUUID(),
+            },
+          ]);
 
-          const response = Chatbot.getResponse(inputText); //получение ответа от бота через библиотеку готовую
+          const response = await Chatbot.getResponseAsync(inputText); //получение ответа от бота через библиотеку готовую
+          //async возвращает промиз и через 1 секунду функция срабатывает
           setChatMessages([
             ...newChatMessages,
             {
@@ -45,9 +62,17 @@
               id: crypto.randomUUID(),
             },
           ]);
-          console.log(response);
-          setInputText(""); //чтоб убрать все из placeholder
+          setIsLoading(false);
         }
+
+        function handleKeyDown(event) {
+          if (event.key === "Enter") {
+            sendMessage();
+          } else if (event.key === "Escape") {
+            setInputText("");
+          }
+        }
+
         return (
           <>
             <input
@@ -55,6 +80,7 @@
               size="30"
               onChange={saveInputText}
               value={inputText} //чтоб в placeholder html было пусто
+              onKeyDown={handleKeyDown}
             />
             <button onClick={sendMessage}>Send</button>
           </>
@@ -101,7 +127,7 @@
         );
       }
       function App() {
-        const [chatMessages, setChatMessage] = React.useState([
+        const [chatMessages, setChatMessage, isLoading] = React.useState([
           {
             message: "hello chatbot",
             sender: "user",
