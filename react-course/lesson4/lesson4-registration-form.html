@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Form</title>
+    <style>
+      .login-btns {
+        background-color: rgb(0, 123, 255);
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+      }
+      .buttons {
+        display: flex;
+        gap: 10px;
+      }
+      .inputs {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      input {
+        max-width: 250px;
+        border-width: 1px;
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .password-btn {
+        margin-left: 10px;
+        border-radius: 5px;
+        background-color: rgb(187, 187, 187);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="react-basics.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <!-- код для реакта для вейбсайтов и приложений-->
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <!-- код для реакта только для вебсайтов. для моб приложений есть еще reactNative-->
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <!--  Babel - js complier. to translate JSX  to JS for web browser-->
+    <script type="text/babel">
+      function App() {
+        const [showPassword, setShowPassword] = React.useState(true);
+
+        function whatPassword() {}
+        return (
+          <div>
+            <div className="inputs">
+              <input placeholder="Email" />
+              <div className="password-container">
+                <input
+                  placeholder="Password"
+                  type={showPassword ? "password" : "text"}
+                />
+                <button
+                  className="password-btn"
+                  onClick={() => {
+                    setShowPassword(!showPassword);
+                  }}
+                >
+                  Show
+                </button>
+              </div>
+            </div>
+            <div className="buttons">
+              <button className="login-btns">Login</button>
+              <button className="login-btns">Sign up</button>
+            </div>
+          </div>
+        );
+      }
+      const container = document.querySelector(".js-container");
+
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
