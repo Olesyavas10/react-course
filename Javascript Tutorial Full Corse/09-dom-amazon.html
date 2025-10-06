@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Amazon</title>
+  </head>
+
+  <p>Amazon Shipping Calculator</p>
+  <input
+    class="js-cost-input"
+    placeholder="Cost of order"
+    onkeydown="
+    hadleCost(event)"
+  />
+  <button
+    class="calculate"
+    onclick="
+  
+    calculateTotal()
+  "
+  >
+    Calculate
+  </button>
+  <p class="js-total-cost"></p>
+
+  <input class="smthType" placeholder="Type something" onkeydown="textSmth()" />
+  <p class="textSmth"></p>
+  <body>
+    <script>
+      const textSmth = () => {
+        const inputElement = document.querySelector(".smthType");
+        document.querySelector(".textSmth").innerHTML = inputElement.value;
+      }; //моментальная печать
+
+      function hadleCost(event) {
+        if (event.key === "Enter") {
+          calculateTotal();
+        }
+      }
+
+      function calculateTotal() {
+        const inputElement = document.querySelector(".js-cost-input");
+        let cost = Number(inputElement.value) * 100;
+
+        if (cost < 4000) {
+          cost = cost + 1000;
+        }
+        document.querySelector(".js-total-cost").innerHTML = `$${cost / 100}`;
+      }
+    </script>
+  </body>
+</html>

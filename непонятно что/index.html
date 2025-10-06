@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./index.css" />
+  <link rel="stylesheet" type="text/css" href="./reset.css" />
+  <link rel="stylesheet" type="text/css" href="./normalize.css" />
+  <link rel="icon" href="./favicon.ico" />
+  <title>Fish project</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="header__container">
+        <a href="#">
+          <h3 class="nav__title">Информация</h3>
+        </a>
+        <a href="#">
+          <h3 class="nav__title">Фото и видео</h3>
+        </a>
+      </div>
+      <div class="header__logo-container">
+        <img class="header__logo" src="/images/logo.png" alt="logo" />
+      </div>
+      <div class="header__container">
+        <a href="#map">
+          <h3 class="nav__title">Карта штата</h3>
+        </a>
+        <a href="#">
+          <h3 class="nav__title">Гостиницы</h3>
+        </a>
+      </div>
+
+    </header>
+    <main class="main__wrapper">
+      <div class="hero__wrapper">
+        <div class="hero__bg">
+          <div class="hero__text"></div>
+        </div>
+      </div>
+      <div class="main__slogan">
+        <h2 class="main__slogan-text">
+          Седона — небольшой городок в Аризоне, </br>
+          заслуживающий большего!
+        </h2>
+        <p class="main__slogan-desc">Рассмотрим 5 причин, по которым Седона круче, чем гранд каньон!</p>
+      </div>
+      <div class="main__banner-info">
+        <div class="main__info main__info--blue">
+          <h2 class="main__slogan-text main__slogan-text--white">Настоящий </br> городок</h2>
+          <span class="main__slogan-desc main__slogan-desc--white">— №1 —</span>
+          <p class="main__slogan-desc main__slogan-desc--white">
+            Седона — не аттракцион для туристов, там </br> течёт своя жизнь
+          </p>
+        </div>
+        <div class="main__banner"></div>
+      </div>
+      <div class="main__banner-info">
+        <div class="main__info">
+          <div class="main__slogan-icon--one"></div>
+          <h2 class="main__slogan-text">Жильё</h2>
+          <p class="main__slogan-desc">
+            Рекомендуем пожить в настоящем мотеле, </br>всё как в кино!
+          </p>
+        </div>
+        <div class="main__info">
+          <div class="main__slogan-icon--two"></div>
+          <h2 class="main__slogan-text">Еда</h2>
+          <p class="main__slogan-desc">
+            Всегда заказывайте фирменный бургер, </br>вы не разочаруетесь!
+          </p>
+        </div>
+        <div class="main__info">
+          <div class="main__slogan-icon--three"></div>
+          <h2 class="main__slogan-text">Сувениры</h2>
+          <p class="main__slogan-desc">
+            Не только китайского, но и местного </br>
+            производства!
+          </p>
+        </div>
+      </div>
+      <div class="main__banner-info-two">
+        <div class="main__banner-two"></div>
+        <div class="main__info main__info--blue">
+          <h2 class="main__slogan-text main__slogan-text--white">Там есть </br> Мост дьявола</h2>
+          <span class="main__slogan-desc main__slogan-desc--white">— №2 —</span>
+          <p class="main__slogan-desc main__slogan-desc--white">
+            Да, по нему можно пройти! Если конечно
+            </br> вы осмелитесь
+          </p>
+        </div>
+      </div>
+      <div class="main__banner-info-three">
+        <div class="main__info-three">
+          <h2 class="main__slogan-text">небольшая</br>
+            площадь</h2>
+          <span class="main__slogan-desc">— №3 —</span>
+          <p class="main__slogan-desc">
+            все достопримечательности</br>находятся очень близко</p>
+        </div>
+        <div class="main__info-three">
+          <h2 class="main__slogan-text">красивая</br>
+            дорога</h2>
+          <span class="main__slogan-desc">— №4 —</span>
+          <p class="main__slogan-desc">
+            ехать в седону из лас-вегаса совсем</br>не скучно!
+          </p>
+        </div>
+        <div class="main__info-three">
+          <h2 class="main__slogan-text">мало</br>
+            туристов</h2>
+          <span class="main__slogan-desc">— №5 —</span>
+          <p class="main__slogan-desc">большинство едет в гранд каньон</br>и толпится там</p>
+        </div>
+      </div>
+      <div class="poisk">
+        <div class="poisk-text">
+          <h4 class="main__question">Заинтересовались?</h4>
+          <p class="main__slogan-desc">Укажите предполагаемые даты поездки, </br>и мы покажем вам лучшие предложения
+            гостиниц в седоне</p>
+        </div>
+        <div class="poisk-wrapper">
+          <button id="poisk-button" class="poisk-button">
+            <span class="main__slogan-text main__slogan-text--white">ПОИСК ГОСТИНИЦЫ В седоне</span>
+          </button>
+          <form id="poisk-form-wrapper" class="poisk-form-wrapper">
+            <div class="poisk_form">
+              <div class="form__input">
+                <label for="Start">Дата заезда:</label>
+                <input type="date" id="Start" name="trip-start" value="2021-06-07" min="2021-06-07" max="2022-12-31">
+              </div>
+              <div class="form__input">
+                <label for="End">Дата выезда:</label>
+                <input type="date" id="End" name="trip-end" value="2021-06-07" min="2021-06-07" max="2022-12-31">
+              </div>
+              <div class="guests">
+                <div class="form__input">
+                  <label for="Adult">Взрослые:</label>
+                  <div class="form__calculate">
+                    <button type="button" onclick="changeCount('adults', -1)">−</button>
+                    <span id="adults">2</span>
+                    <button type="button" onclick="changeCount('adults', 1)">+</button>
+                  </div>
+                </div>
+                <div class="form__input">
+                  <label class="label-mini" for="Children">Дети:</label>
+                  <div class="form__calculate">
+                    <button type="button" onclick="changeCount('children', -1)">−</button>
+                    <span id="children">0</span>
+                    <button type="button" onclick="changeCount('children', 1)">+</button>
+                  </div>
+                </div>
+              </div>
+              <button class="search-button">НАЙТИ</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <article id="map">
+      <iframe class="map-info"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52385.32878984724!2d-111.79515905!3d34.85414049999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872da132f942b00d%3A0x5548c523fa6c8efd!2z0KHQtdC00L7QvdCwLCDQkNGA0LjQt9C-0L3QsCA4NjMzNiwg0KHQqNCQ!5e0!3m2!1sru!2s!4v1737953387911!5m2!1sru!2s"
+        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </article>
+    </main>
+    <footer class="footer">
+      <div class="map-text-back">
+        <div class="map-text-one">
+          <h2 class="main__slogan-text">#visitSEDONA</h2>
+          <h2 class="main__slogan-text">+7 800 555-86-28</h2>
+        </div>
+
+        <div class="map-icons">
+          <div class="map-icon-twitter"></div>
+          <div class="map-icon-facebook"></div>
+          <div class="map-icon-youtube"></div>
+        </div>
+
+        <div class="map-text-two">
+          <p class="main__slogan-desc">Website by</p>
+          <img class="logo-academy" src="/images/logo_academy.png" alt="logo-academy" float:"right" />
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>

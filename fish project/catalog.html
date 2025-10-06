@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./index.css" />
+  <link rel="stylesheet" type="text/css" href="./reset.css" />
+  <link rel="stylesheet" type="text/css" href="./normalize.css" />
+  <link rel="icon" href="./favicon.ico" />
+  <title>Fish project</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="header__container">
+        <a href="#">
+          <h3 class="nav__title">Информация</h3>
+        </a>
+        <a href="#">
+          <h3 class="nav__title">Фото и видео</h3>
+        </a>
+      </div>
+      <div class="header__logo-container">
+        <img class="header__logo" src="/images/logo.png" alt="logo" />
+      </div>
+      <div class="header__container">
+        <a href="#map">
+          <h3 class="nav__title">Карта штата</h3>
+        </a>
+        <a href="#">
+          <h3 class="nav__title">Гостиницы</h3>
+        </a>
+      </div>
+    </header>
+    <main class="main__wrapper">
+      <div class="catalog__filter">
+        <div class="catalog__filter-item">
+          <div class="filter-item">
+            <h3 class="filter_text">Инфраструктура:</h3>
+            <div class="filter-item__checkbox__wrapper">
+              <div class="checkbox">
+                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <label class="checkbox-label" for="checkbox2">
+                  Бассейн
+                </label>
+              </div>
+              <div class="checkbox">
+                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <label class="checkbox-label" for="checkbox2">
+                  Парковка
+                </label>
+              </div>
+              <div class="checkbox">
+                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <label class="checkbox-label" for="checkbox2"> Wi-Fi </label>
+              </div>
+            </div>
+          </div>
+          <div class="filter-item">
+            <h3 class="filter_text">Тип жилья:</h3>
+            <div class="filter-item__checkbox__wrapper">
+              <div class="checkbox">
+                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <label class="checkbox-label" for="checkbox2">
+                  Гостиница
+                </label>
+              </div>
+              <div class="checkbox">
+                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <label class="checkbox-label" for="checkbox2"> Мотель </label>
+              </div>
+              <div class="checkbox">
+                <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                <label class="checkbox-label" for="checkbox2">
+                  Апартаменты
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="catalog__filter-range">
+          <h3 class="filter_text">Стоимость в сутки, ₽:</h3>
+          <div class="slider-container">
+            <div class="price-input">
+              <input type="text" class="minPrice" value="0" />
+              <input type="text" class="maxPrice" value="3000" />
+            </div>
+            <div class="range-slider">
+              <input type="range" id="minRange" min="0" max="100000" value="0" step="100" />
+              <input type="range" id="maxRange" min="0" max="100000" value="100000" step="100" />
+            </div>
+          </div>
+          <div class="show-button-wrapper">
+            <button class="show-button">ПОКАЗАТЬ</button>
+          </div>
+        </div>
+      </div>
+      <div class="hotels">
+        <div class="hotel-filters">
+          <h3 class="main__slogan-text">Найдено: 3</h3>
+          <div class="sort-options">
+            <h3 class="sort-title">Сортировка:</h3>
+            <a href="#">ПО ЦЕНЕ</a>
+            <a href="#">ПО ТИПУ</a>
+            <a href="#">ПО РЕЙТИНГУ</a>
+          </div>
+          <div class="arrows">
+            <div class="triangle up"></div>
+            <div class="triangle down"></div>
+          </div>
+        </div>
+        <div class="hotel-cards">
+          <div class="hotel-card-container">
+            <div class="hotel-card">
+              <img class="card-one" src="/images/card1.png" alt="card1" /> </img>
+              <div class="card-one-info">
+                <h3 class="main__slogan-text">Amara Resort & Spa</h3>
+                <div class="card-one-sort">
+                  <p class="main__slogan-desc">гостиница</p>
+                  <p class="main__slogan-desc">От 4000 ₽</p>
+                </div>
+                <div class="card-one-buttons">
+                  <button class="card-button-one">Подробнее</button>
+                  <button class="card-button-two">Забронировать</button>
+                </div>
+              </div>
+            </div>
+            <div class="reiting">
+              <span class="stars">★★★★☆</span>
+              <p class="reiting-text">РЕЙТИНГ: 8,5</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="map-text-back">
+        <div class="map-text-one">
+          <h2 class="main__slogan-text">#visitSEDONA</h2>
+          <h2 class="main__slogan-text">+7 800 555-86-28</h2>
+        </div>
+
+        <div class="map-icons">
+          <div class="map-icon-twitter"></div>
+          <div class="map-icon-facebook"></div>
+          <div class="map-icon-youtube"></div>
+        </div>
+
+        <div class="map-text-two">
+          <p class="main__slogan-desc">Website by</p>
+          <img class="logo-academy" src="/images/logo_academy.png" alt="logo-academy" float:"right" />
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>

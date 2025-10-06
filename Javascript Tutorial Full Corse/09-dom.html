@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM - document object</title>
+  </head>
+  <body>
+    <button>hello</button>
+    <button class="js-button">Second button</button>
+    <script>
+      document.querySelector("button"); // to select the button element
+      document.querySelector("button").innerHTML = "Click me"; // to change the text of the button (только первую кнопку)
+      const buttonElement = document.querySelector(".js-button");
+
+      /* document.body.innerHTML = "hello";
+      document.title = "Good job";
+       */
+    </script>
+  </body>
+</html>

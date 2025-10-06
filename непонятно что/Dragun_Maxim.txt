@@ -1,0 +1,60 @@
+void TIM1_CC_IRQHandler (void);
+void TIM1_UP_TIM16_IRQHandler (void);
+
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+  MX_RTC_Init();
+  
+//PA11
+  GPIOA->MODER |= 1<<22;
+  GPIOA->MODER &= ~(1<<23);
+//PA12
+  GPIOA->MODER |= 1<<24;
+  GPIOA->MODER &= ~(1<<25);
+
+  unsigned N, M;
+  N = 65530; 
+  M = SystemCoreClock;
+
+  __NVIC_EnableIRQ((IRQn_Type)27);
+  __NVIC_SetPriority((IRQn_Type)27, (uint32_t) 1);
+ 
+
+  RCC->APB2ENR |= 1<<11; // clock switch on 
+  TIM1->PSC = (M/N) - 1;
+  TIM1->CCR1 = N;
+  TIM1->DIER |= 1<<1; // IRQ generation enable on CNT=CCR1 and update event on CNT=CCR1
+  TIM1->CR1 |= 1; // counter enable
+  TIM1->EGR |= 1; // software update event (UEV)
+  
+  __NVIC_EnableIRQ((IRQn_Type)25);
+  __NVIC_SetPriority((IRQn_Type)25, (uint32_t) 1);
+  
+  RCC->APB2ENR |= 1<<17; // clock switch on 
+  TIM16->PSC = (M/(3*N)) - 1;
+  TIM16->CCR1 = N;
+  TIM16->DIER |= 1<<1; // IRQ generation enable on CNT=CCR1 and update event on CNT=CCR1
+  TIM16->CR1 |= 1; // counter enable
+  TIM16->EGR |= 1; // software update event (UEV)
+  while(1)
+  {
+    
+  }
+}
+
+void TIM1_CC_IRQHandler (void)
+{
+  TIM1->SR &= ~(1<<1);
+  GPIOA->ODR ^= 1<<11;
+  TIM1->EGR |= 1; // software update event (UEV)
+}
+
+void TIM1_UP_TIM16_IRQHandler (void)
+{
+  TIM16->SR &= ~(1<<1);
+  GPIOA->ODR ^= 1<<12;
+  TIM16->EGR |= 1; // software update event (UEV)
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Booleans</title>
+  </head>
+  <body>
+    <button
+      onclick="playGame('heads')  
+    console.log(score); "
+    >
+      heads
+    </button>
+    <button
+      onclick="playGame('tails')
+     console.log(score);"
+    >
+      tails
+    </button>
+    <script>
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+      };
+
+      const playGame = (guess) => {
+        let variable = Math.random();
+        let result = "";
+
+        if (variable < 0.5) {
+          result = "heads";
+          if (guess === result) {
+            console.log("You win");
+            score.wins++;
+          } else {
+            console.log("You lose");
+            score.losses++;
+          }
+        } else {
+          result = "tails";
+          if (guess === result) {
+            console.log("You win");
+            score.wins++;
+          } else {
+            console.log("You lose");
+            score.losses++;
+          }
+        }
+        localStorage.setItem("score", JSON.stringify(score));
+      };
+    </script>
+  </body>
+</html>

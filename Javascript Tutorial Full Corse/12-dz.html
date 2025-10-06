@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Functions DZ</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      /* const multiply = (a, b) => {
+                  a * b;
+                };
+           */
+      /* const countPositive = (nums) => {
+             let count = 0;
+             nums.forEach((num) => {
+               if (num > 0) {
+                 count++;
+               }
+             });
+             return count;
+           };
+           console.log(countPositive([1, -3, 5])); */
+
+      /*  const addNum = (array, num) => {
+             return array.map((arr, num) => num + arr);
+           };
+
+           console.log(addNum([1, 2, 3], 2));
+      */
+      const removeEgg = (foods) => {
+        let count = 0;
+        return foods.filter((food) => {
+          if (food === "egg") {
+            count++;
+            return count > 2;
+          }
+          return true;
+        });
+      };
+      console.log(removeEgg(["egg", "apple", "egg", "egg", "ham"]));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Objects</title>
+  </head>
+  <body>
+    <script>
+      const product = {
+        name: "shirt",
+        city: "Moscow",
+      };
+      console.log(product);
+      console.log(product.name);
+      console.log(product["name"]); //same as above используется когда имя свойства хранится в переменной типо del-time
+      JSON.stringify(product); //превращает объект в строку для хранения в файле или передачи по сети
+      JSON.parse(JSON.stringify(product));
+      //превращает строку обратно в объект
+      //const name=product.name
+      // const{name}=product; //деструктуризация
+      const { name, city } = product; //можно несколько свойств
+      console.log(city);
+      const obj = {
+        name: name,
+      };
+      console.log(obj); //{name: 'shirt'}
+      //shorthand method
+      const obj1 = {
+        name,
+        //method: function funtion1() {
+        //console.log("method");
+        // },
+        method() {
+          console.log("method shorthand");
+        },
+      };
+      obj1.method(); //method
+
+      const amazon = {
+        product: "basketball",
+        price: 2095,
+      };
+      amazon.price += 500;
+      console.log(amazon);
+      amazon["delivery-time"] = "3 days"; //добавление свойства с дефисом;
+      const comparePrice = (product1, product2) => {
+        if (product2.price < product1.price) {
+          console.log(product2);
+          return product2;
+        } else console.log(product1);
+      };
+      comparePrice(amazon, { product: "monitor", price: 10000 });
+
+      const isSameProduct = (pr1, pr2) => {
+        return pr1.product === pr2.product && pr1.price === pr2.price;
+      };
+      const str1 = "hi";
+      console.log(str1.repeat(5));
+    </script>
+  </body>
+</html>

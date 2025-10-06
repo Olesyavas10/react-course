@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Projects</title>
+  </head>
+  <p>YouTube Subscribe Button</p>
+  <button
+    onclick=" subscribe()
+  "
+    class="js-subscribe-button"
+  >
+    Subscribe
+  </button>
+
+  <h2>Rock Paper Scissors</h2>
+  <p>Click here</p>
+
+  <p>Amazon Shipping Calculator</p>
+  <input
+    class="js-cost-input"
+    placeholder="Cost of order"
+    onkeydown="
+    hadleCost(event)"
+  />
+  <button
+    class="calculate"
+    onclick="
+  
+    calculateTotal()
+  "
+  >
+    Calculate
+  </button>
+  <p class="js-total-cost"></p>
+  <body>
+    <script>
+      String(25); // to convert number to string
+
+      window.console.log("hello"); // same as console.log("hello")
+      window.alert("hello"); // same as alert("hello")
+      //we dont need to write window. because its a global object
+
+      function hadleCost(event) {
+        if (event.key === "Enter") {
+          calculateTotal();
+        }
+      }
+      const subscribe = () => {
+        const buttonElement = document.querySelector(".js-subscribe-button");
+        if (buttonElement.innerHTML === "Subscribe") {
+          buttonElement.innerHTML = "Subscribed";
+        } else {
+          buttonElement.innerHTML = "Subscribe";
+        }
+      };
+
+      function calculateTotal() {
+        const inputElement = document.querySelector(".js-cost-input");
+        let cost = Number(inputElement.value);
+        if (cost < 40) {
+          cost = cost + 10;
+        }
+        document.querySelector(".js-total-cost").innerHTML = `$${cost}`;
+      }
+    </script>
+  </body>
+</html>

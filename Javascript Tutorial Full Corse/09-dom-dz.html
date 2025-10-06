@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM-dz</title>
+  </head>
+  <body>
+    <button
+      onclick="playGame('heads')  
+    console.log(score); "
+    >
+      heads
+    </button>
+    <button
+      onclick="playGame('tails')
+     console.log(score);"
+    >
+      tails
+    </button>
+    <p class="guess"></p>
+
+    <input class="js-name" placeholder="Name" onkeydown="handleName(event)" />
+    <buttton
+      class="js-submit-button"
+      onclick="
+    textName()"
+      >Submit</buttton
+    >
+    <p class="js-text-name"></p>
+    <script>
+      const handleName = (event) => {
+        if (event.key === "Enter") {
+          textName();
+        }
+      };
+      const textName = () => {
+        let nameElement = document.querySelector(".js-name");
+        document.querySelector(
+          ".js-text-name"
+        ).innerHTML = `Your name is: ${nameElement.value}`;
+      };
+
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+      };
+
+      const playGame = (guess) => {
+        let variable = Math.random();
+        let result = "";
+
+        if (variable < 0.5) {
+          result = "heads";
+          if (guess === result) {
+            console.log("You win");
+            score.wins++;
+          } else {
+            console.log("You lose");
+            score.losses++;
+          }
+        } else {
+          result = "tails";
+          if (guess === result) {
+            console.log("You win");
+            score.wins++;
+          } else {
+            console.log("You lose");
+            score.losses++;
+          }
+        }
+        document.querySelector(".guess").innerHTML = `You choose: ${guess}`;
+        localStorage.setItem("score", JSON.stringify(score));
+      };
+    </script>
+  </body>
+</html>

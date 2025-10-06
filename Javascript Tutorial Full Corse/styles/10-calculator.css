@@ -1,0 +1,38 @@
+body {
+        background-color: black;
+        color: white;
+        font-family: Arial;
+      }
+      .button-grey {
+        background-color: rgb(56, 55, 55);
+        border: none;
+        height: 35px;
+        width: 35px;
+        margin-top: -5px;
+        border-radius: 30px;
+        text-align: center;
+        color: white;
+        font-size: 15px;
+      }
+      .button-yellow {
+        background-color: orange;
+        border: none;
+        height: 35px;
+        width: 35px;
+        margin-top: -5px;
+        border-radius: 30px;
+        text-align: center;
+        color: white;
+        font-size: 15px;
+      }
+      .button-clear {
+        background-color: rgb(56, 55, 55);
+        border: none;
+        height: 35px;
+        width: 35px;
+        margin-top: -5px;
+        border-radius: 30px;
+        text-align: center;
+        color: white;
+        font-size: 8px;
+      }
